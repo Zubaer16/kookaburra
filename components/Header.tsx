@@ -49,7 +49,7 @@ function Header() {
               max-w-4xl"
           />
         </Form>
-        <div className="flex items-center space-x-4 mt-4 sm:mt-0 flex-1 sm:flex-none">
+        <div className="flex items-center flex-wrap space-x-4 gap-y-4 mt-4 sm:mt-0 flex-1 sm:flex-none">
           <Link
             href="/basket"
             className="
@@ -68,12 +68,11 @@ function Header() {
               py-2
               px-4
               rounded
-              text-[10px]
-              sm:text-base"
+              "
           >
-            <TrolleyIcon className="w-4 h-4 sm:w-6 sm:h-6" />
+            <TrolleyIcon className="w-6 h-6" />
             {/* Span item count once global state is implemented */}
-            <span>My Basket</span>
+            <span>Basket</span>
           </Link>
           {/* User area */}
           <ClerkLoaded>
@@ -96,12 +95,10 @@ function Header() {
                     py-2
                     px-4
                     rounded
-                    text-[10px]
-                    sm:text-base
                     "
               >
-                <PackageIcon className="w-4 h-4 sm:w-6 sm:h-6" />
-                <span>My Orders</span>
+                <PackageIcon className="w-6 h-6" />
+                <span>Orders</span>
               </Link>
             )}
             {user ? (
@@ -115,11 +112,11 @@ function Header() {
             ) : (
               <SignInButton mode="modal" />
             )}
+
             {user?.passkeys.length === 0 && (
               <button
                 onClick={createClerkPasskey}
-                className="bg-white hover:bg-blue-700 hover:text-white animate-pulse text-blue-500 font-bold py-2 px-4 rounded border-blue-300 border text-[10px]
-                    sm:text-base"
+                className="bg-white hover:bg-blue-700 hover:text-white animate-pulse text-blue-500 font-bold py-2 px-4 rounded border-blue-300 border cursor-pointer"
               >
                 Create passkey
               </button>
