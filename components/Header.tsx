@@ -19,7 +19,7 @@ function Header() {
   return (
     <header className="flex flex-wrap justify-between items-center px-4 py-2">
       {/* Top row */}
-      <div className="flex w-full flex-wrap justify-between items-center">
+      <div className="flex w-full flex-wrap justify-between items-center gap-y-4">
         <Link
           href="/"
           className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
@@ -49,7 +49,7 @@ function Header() {
               max-w-4xl"
           />
         </Form>
-        <div className="flex items-center flex-wrap space-x-4 gap-y-4 mt-4 sm:mt-0 flex-1 sm:flex-none">
+        <div className="flex items-center flex-wrap space-x-4 gap-y-4 sm:mt-0 flex-1 sm:flex-none">
           <Link
             href="/basket"
             className="
@@ -104,7 +104,7 @@ function Header() {
             {user ? (
               <div className="flex items-center space-x-2">
                 <UserButton />
-                <div className="hidden sm:blok text-xs">
+                <div className="hidden sm:block text-xs">
                   <p className="text-gray-400">Welcome back</p>
                   <p className="font-bold">{user.fullName}</p>
                 </div>
