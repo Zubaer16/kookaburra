@@ -2,7 +2,7 @@ import { TrolleyIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const productType = defineType({
-  name: 'products',
+  name: 'product',
   title: 'Product',
   type: 'document',
   icon: TrolleyIcon,
@@ -64,7 +64,7 @@ export const productType = defineType({
     prepare(select) {
       return {
         title: select.title,
-        subtitle: `${select.price}`,
+        subtitle: `$ ${select.price}`,
         media: select.media,
       }
     },
