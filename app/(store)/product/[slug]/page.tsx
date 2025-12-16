@@ -1,3 +1,5 @@
+import AddToBasketButton from '@/components/AddToBasketButton'
+import { Button } from '@/components/ui/button'
 import { imageUrl } from '@/lib/imageUrl'
 import { getProductBySlug } from '@/sanity/lib/products/getProductBySlug'
 import { div } from 'framer-motion/client'
@@ -46,6 +48,9 @@ async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
                 <PortableText value={product.description} />
               )}
             </div>
+          </div>
+          <div className="mt-6">
+            <AddToBasketButton product={product} disabled={isOutOfStock} />
           </div>
         </div>
       </div>
