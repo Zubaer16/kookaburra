@@ -1,4 +1,5 @@
 'use client'
+import { createCheckoutSession } from '@/actions/createCheckoutSession'
 import AddToBasketButton from '@/components/AddToBasketButton'
 import Loader from '@/components/Loader'
 import { imageUrl } from '@/lib/imageUrl'
