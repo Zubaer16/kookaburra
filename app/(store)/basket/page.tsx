@@ -60,6 +60,7 @@ function BasketPage() {
         window.location.href = checkoutUrl
       }
     } catch (error) {
+      console.error(error)
     } finally {
       setIsLoading(false)
     }

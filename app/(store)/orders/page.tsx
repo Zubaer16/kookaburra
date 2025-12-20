@@ -1,7 +1,6 @@
 import { getMyOrders } from '@/sanity/lib/orders/getMyOrders'
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
-import { Order } from '@/sanity.types'
 import { formatCurrency } from '@/lib/formatCurrency'
 import Image from 'next/image'
 import { imageUrl } from '@/lib/imageUrl'
