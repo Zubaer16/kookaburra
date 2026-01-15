@@ -6,13 +6,14 @@ import Form from 'next/form'
 import { TrolleyIcon } from '@sanity/icons'
 import { PackageIcon } from 'lucide-react'
 import useBasketStore from '@/store/store'
+import usePaginationStore from '@/store/paginationStore'
 
 function Header() {
   const { user } = useUser()
   const itemCount = useBasketStore((state) =>
     state.items.reduce((total, item) => total + item.quantity, 0)
   )
-
+  const reset = usePaginationStore((state) => state.reset)
   const createClerkPasskey = async () => {
     try {
       const response = await user?.createPasskey()
@@ -27,6 +28,7 @@ function Header() {
       <div className="flex w-full flex-wrap justify-between items-center gap-y-4">
         <Link
           href="/"
+          onClick={reset}
           className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
         >
           Kookaburra

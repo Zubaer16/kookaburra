@@ -5,7 +5,7 @@ import ProductGrid from './ProductGrid'
 import { CategorySelectorComponent } from './ui/category-selector'
 import { PaginationComponent } from './Pagination'
 import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import usePaginationStore from '@/store/paginationStore'
 
 interface ProductsViewProps {
   products: Product[]
@@ -19,10 +19,9 @@ const ProductsView = ({
   productsPerPage = 12,
 }: ProductsViewProps) => {
   const [currentPage, setCurrentPage] = useState(1)
-
+  const resetSignal = usePaginationStore((state) => state.resetSignal)
   // If productsPerPage is 0, show all products (no pagination)
   const isPaginationEnabled = productsPerPage > 0
-  const pathname = usePathname()
 
   // Calculate pagination
   const totalPages = isPaginationEnabled
@@ -41,7 +40,7 @@ const ProductsView = ({
   // Reset to page 1 when products change (e.g., category filter)
   useEffect(() => {
     setCurrentPage(1)
-  }, [products, pathname])
+  }, [resetSignal, products])
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
